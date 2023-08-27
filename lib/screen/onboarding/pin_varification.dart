@@ -37,7 +37,7 @@ class _PinVarificationScreenState extends State<PinVarificationScreen> {
       bool res=await verifyOtp(emailAddress, FormValues["otp"]);
       if (res==true) {
         Navigator.pushNamed(context, "/setPassword");
-        // Navigator.push(context, MaterialPageRoute(builder: (_)=>CheckSet()));
+        //  Navigator.push(context, MaterialPageRoute(builder: (_)=>CheckSet()));
       } else {
         setState(() {
         Loading=false;

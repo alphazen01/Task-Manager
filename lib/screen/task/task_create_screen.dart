@@ -81,7 +81,7 @@ class _TaskCreateScreenState extends State<TaskCreateScreen> {
                 onChanged: (Textvalue) {
                   InputOnChange("description", Textvalue);
                 },
-                decoration: AppInputDecoration("INfo"),
+                decoration: AppInputDecoration("Info"),
                 maxLines: 10,
               ),
               SizedBox(height: 20,),

@@ -15,7 +15,7 @@ class SetPassword extends StatefulWidget {
 }
 
 class _SetPasswordState extends State<SetPassword> {
-  Map<String,String>FormValues={"email":"","OTP":"","password":"","cpassword":"",};
+  Map<String,String>FormValues={"email":"","OTP":"","password":"",};
   bool Loading = false;
 
   @override
@@ -39,7 +39,8 @@ InputOnchange(MapKey,Textvalue){
    FormOnSubmit()async{
     if (FormValues["password"]!.length==0) {
       ErrorToast("password required");
-    }else if(FormValues["password"]!=FormValues["cpassword"]){
+    }
+    else if(FormValues["cpassword"]!=FormValues["cpassword"]){
       ErrorToast("confirm password should be same");
     }
      else {

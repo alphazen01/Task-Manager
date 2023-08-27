@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task/check/profile_update.dart';
 import 'package:task/controller/auth_controller.dart';
 import 'package:task/screen/onboarding/email_verification.dart';
 import 'package:task/screen/onboarding/pin_varification.dart';
@@ -26,6 +27,7 @@ if (token==null) {
 }else{
 runApp( MyApp("/"));
 }
+
 
 
   
@@ -66,6 +68,7 @@ class MyApp extends StatelessWidget {
           "/newTaskList":((context) => NewTaskList()),
           "/setPassword":((context) => SetPassword()),
           "/taskCreate":((context) => TaskCreateScreen()),
+          // "/updateProfile":((context) =>ProfileUpdateScreen()),
           
         },
       ),

@@ -109,6 +109,7 @@ Future<bool>verifyOtp(Email,OTP)async{
 
 Future<bool>setNewPassword(FormValues)async{
   var Url = Uri.parse("${baseUrl}/RecoverResetPass");
+  
   var PostBody = json.encode(FormValues);
   // var PostBody = jsonEncode(FormValues);
 
@@ -118,11 +119,10 @@ Future<bool>setNewPassword(FormValues)async{
   var resultBody = json.decode(response.body);
 
   if (resultCode==200 && resultBody["status"]=="success") {
-    
+
     SuccessToast("Request Success");
     return true;
   } else {
-    print("SetPassword=== ${resultCode}");
     ErrorToast("Request fail try again");
     return false;
   }
@@ -165,4 +165,26 @@ Future<bool>taskCreateRequest(FormValues)async{
     ErrorToast("Request fail try again");
     return false;
   }
+}
+
+Future<bool>profileUpdate(FormValues,id )async{
+  var Url = Uri.parse("${baseUrl}/update/${id}");
+  String? token = await readUserData("token");
+   var requestHeaderWithToken ={
+  "Content-Type":"aplication/json","token":'$token'};
+  var PostBody = json.encode(FormValues);
+
+  var response = await http.post(Url,headers:requestHeaderWithToken ,body: PostBody);
+  var resultCode = response.statusCode;
+  var resultBody = json.decode(response.body);
+
+  if (resultCode==200 && resultBody["status"]=="success") {
+
+    SuccessToast("Request Success");
+    await writeUserData(resultBody);
+    return true;
+  } else {
+    ErrorToast("Request fail try again");
+  }
+  return false;
 }

@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:task/style/style.dart';
 import 'package:task/utils/utility/utility.dart';
 
+import '../check/profile_update.dart';
+
+  // goToUpDate(context,){
+  //  Navigator.push(context, 
+  //  MaterialPageRoute(builder: (_)=>
+  //  ProfileUpdateScreen()
+  //  )
+  //  );
+  // }
+
 AppBar taskAppBar(context,getData){
   return AppBar(
     backgroundColor: colorGreen,
@@ -17,13 +27,18 @@ AppBar taskAppBar(context,getData){
             ),
           ),
           SizedBox(width: 10,),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("${getData["firstName"]} ${getData["lastName"]} ",style: Head7Text(colorWhite),),
-              Text("${getData["email"]}",style: Head7Text(colorWhite),),
-            ],
+          GestureDetector(
+            onTap: (){
+              // goToUpDate(context);
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("${getData["firstName"]} ${getData["lastName"]} ",style: Head7Text(colorWhite),),
+                Text("${getData["email"]}",style: Head7Text(colorWhite),),
+              ],
+            ),
           ),
         ],
       ),

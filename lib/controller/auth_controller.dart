@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/login_model.dart';
 import '../models/respones_model.dart';
-import '../models/set_pass_model.dart';
+
 import '../models/signup_model.dart';
 import '../utils/utility/utility.dart';
 
@@ -95,36 +95,36 @@ notifyListeners();
       }
 
 
-Future<ResponseModel> setPassword(SetPassword setModel)async{
-_isLoading = true;
-notifyListeners();
+// Future<ResponseModel> setPassword(SetPasswordModel setModel)async{
+// _isLoading = true;
+// notifyListeners();
 
-var response = await http.post(
-  Uri.parse("https://task.teamrabbil.com/api/v1/RecoverResetPass"),
-  body: jsonEncode(setModel),
-  headers: <String,String>{
-    'Content-Type': 'application/json; charset=UTF-8',
-  }
-);
- print({"response.statusCode:${response.statusCode}"});
- late ResponseModel responseModel;
- var resultBody= json.decode(response.body);
- if (response.statusCode==200) {
-// await writeUserData(resultBody);
-  // await writeUserData();
-  responseModel = ResponseModel(true, response.body);
+// var response = await http.post(
+//   Uri.parse("https://task.teamrabbil.com/api/v1/RecoverResetPass"),
+//   body: json.encode(setModel),
+//   headers: <String,String>{
+//     'Content-Type': 'application/json; charset=UTF-8',
+//   }
+// );
+//  print({"response.statusCode:${response.statusCode}"});
+//  late ResponseModel responseModel;
+//  var resultBody= json.decode(response.body);
+//  if (response.statusCode==200) {
+// // await writeUserData(resultBody);
+//   // await writeUserData();
+//   responseModel = ResponseModel(true, response.body);
     
-  jsonDecode(resultBody);
-    print(response.statusCode);
-    print(response.body);
- } else {
+//   // jsonDecode(resultBody);
+//     print(response.statusCode);
+//     print(response.body);
+//  } else {
 
-    responseModel = ResponseModel(false,response.body);
- }
- _isLoading = false;
-notifyListeners();
- return responseModel;
-}
+//     responseModel = ResponseModel(false,response.body);
+//  }
+//  _isLoading = false;
+// notifyListeners();
+//  return responseModel;
+// }
 
 
 }
